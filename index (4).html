@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f2e9" />
+  <meta name="description" content="홍홍~ 느긋하고 다정한 가을 감성의 개인 포트폴리오" />
+  <title>홍홍~ | My Little Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Gowun+Dodum&display=swap');
+    :root { --bg:#f7f2e9; --paper:#fffcf7; --ink:#45372e; --sub:#807267; --line:#e9ded1; --rust:#b96f50; --rust-dark:#98573b; --cream:#f4e4d0; --sage:#929b80; --shadow:0 16px 60px rgba(91,65,42,.075); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:'DM Sans','Gowun Dodum',sans-serif; -webkit-font-smoothing:antialiased; }
+    body:before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.13; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.19'/%3E%3C/svg%3E"); z-index:9; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    .wrap { max-width:1120px; margin:0 auto; padding:0 35px; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:30px 0 22px; gap:20px; }
+    .brand { font-size:21px; font-weight:700; letter-spacing:-1px; display:flex; gap:9px; align-items:center; white-space:nowrap; }
+    .brand-mark { display:grid; place-items:center; width:36px; height:36px; border-radius:13px; background:#f0dfc8; transform:rotate(-9deg); }
+    .nav-links { display:flex; align-items:center; gap:27px; font-size:13px; color:var(--sub); }
+    .nav-links a:hover { color:var(--rust); }
+    .nav-cta { border:1px solid #d8c5b5; padding:10px 16px; border-radius:100px; color:var(--ink)!important; transition:.2s; }
+    .nav-cta:hover { background:white; transform:translateY(-2px); }
+    .hero { display:grid; grid-template-columns:1.16fr .84fr; align-items:center; gap:35px; min-height:540px; padding:60px 0 70px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 13px; background:#eae2d5; border-radius:30px; text-transform:uppercase; font-size:11px; font-weight:700; letter-spacing:2px; color:#8e6651; }
+    .dot { background:#a4a983; width:7px; height:7px; border-radius:50%; }
+    h1 { font-size:clamp(44px,6.6vw,79px); line-height:1.19; font-weight:700; letter-spacing:-4px; margin:27px 0 23px; }
+    h1 .accent { font-family:'Gowun Dodum',sans-serif; color:var(--rust); position:relative; }
+    h1 .accent:after { content:""; position:absolute; height:8px; border-radius:40%; bottom:-5px; left:2%; width:94%; background:#e4c69d; transform:rotate(-2deg); z-index:-1; }
+    .hero-desc { color:var(--sub); font-size:16px; line-height:2; margin:0 0 29px; word-break:keep-all; }
+    .hero-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
+    .btn-primary, .btn-secondary { display:inline-flex; justify-content:center; align-items:center; gap:12px; border-radius:100px; padding:15px 22px; font-size:13px; font-weight:700; border:1px solid transparent; cursor:pointer; transition:transform .2s,background .2s,box-shadow .2s; }
+    .btn-primary { background:var(--ink); color:white; box-shadow:0 8px 23px #49372820; }
+    .btn-primary:hover { background:var(--rust-dark); transform:translateY(-3px); box-shadow:0 12px 26px #49372829; }
+    .btn-secondary { border-color:#d9c9ba; background:#ffffff70; }
+    .btn-secondary:hover { background:white; transform:translateY(-3px); }
+    .portrait-area { position:relative; display:grid; place-items:center; min-height:395px; }
+    .portrait-card { position:relative; isolation:isolate; width:min(100%,360px); aspect-ratio: .92; border-radius:47% 47% 39% 39% / 39% 39% 34% 34%; background:radial-gradient(circle at 58% 26%, #f8e9cb 0%, #f0d7b2 50%, #e9c6a7 100%); box-shadow:var(--shadow); display:flex; align-items:end; justify-content:center; overflow:hidden; }
+    .portrait-card svg { width:100%; height:100%; }
+    .orb { position:absolute; border-radius:50%; filter:blur(1px); z-index:-1; }
+    .orb.one { background:#d6ddc4; width:110px; height:110px; top:6px; left:-11px; }
+    .orb.two { background:#f0e4cc; width:130px; height:130px; bottom:-26px; right:-24px; }
+    .float-note { position:absolute; background:#fffcf6; padding:12px 16px; border:1px solid #ede0d0; border-radius:15px; box-shadow:0 8px 35px #5b412b12; font-size:13px; font-weight:700; transform:rotate(-7deg); z-index:2; animation:bob 4s ease-in-out infinite; }
+    .note-left { bottom:53px; left:-24px; }
+    .note-right { top:66px; right:-25px; transform:rotate(7deg); animation-delay:-2s; }
+    @keyframes bob { 0%,100% { translate:0 0; } 50% { translate:0 -9px; } }
+    .section { padding:69px 0 75px; border-top:1px solid #e6dacb; }
+    .section-top { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:28px; }
+    .mini { color:var(--rust); font-size:11px; font-weight:700; letter-spacing:2.3px; text-transform:uppercase; margin:0 0 12px; }
+    h2 { font-size:clamp(27px,3.4vw,39px); letter-spacing:-1.7px; line-height:1.4; margin:0; }
+    .section-caption { margin:0; color:var(--sub); font-size:13px; line-height:1.8; }
+    .about-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:20px; }
+    .card { background:var(--paper); border:1px solid #ece1d5; border-radius:25px; box-shadow:var(--shadow); padding:30px; }
+    .about-intro { font-size:19px; font-weight:700; letter-spacing:-.6px; line-height:1.8; margin:0 0 17px; }
+    .about-text { font-size:14px; line-height:2; color:var(--sub); margin:0 0 25px; }
+    .chips { display:flex; flex-wrap:wrap; gap:9px; }
+    .chip { background:#f4ece1; padding:9px 12px; border-radius:12px; color:#7d6454; font-size:12px; }
+    .traits { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .trait { background:#f7f1e9; border-radius:18px; padding:20px; min-height:115px; }
+    .trait .emoji { font-size:25px; }
+    .trait b { display:block; font-size:14px; margin-top:8px; }
+    .trait span { font-size:12px; color:var(--sub); line-height:1.6; }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .project { display:flex; flex-direction:column; padding:0; overflow:hidden; transition:transform .2s,box-shadow .2s,border-color .2s; }
+    .project:hover, .project:focus-visible { transform:translateY(-7px); box-shadow:0 20px 40px #74543a1c; border-color:#d6baa0; outline:none; }
+    .project-art { display:grid; place-items:center; height:185px; position:relative; overflow:hidden; }
+    .project:nth-child(1) .project-art { background:#ebd6bd; }
+    .project:nth-child(2) .project-art { background:#dce0d0; }
+    .project:nth-child(3) .project-art { background:#e6d5d4; }
+    .project-art:before { content:""; width:155px; height:155px; border:1px solid #ffffffa8; border-radius:50%; position:absolute; transform:translate(-45px,-32px); }
+    .project-art:after { content:""; width:115px; height:115px; border:1px solid #ffffff91; border-radius:50%; position:absolute; transform:translate(65px,45px); }
+    .project-number { font-family:Georgia,serif; font-size:104px; font-weight:400; color:#ffffffbf; position:relative; z-index:1; line-height:1; text-shadow:0 3px 15px #7d59401c; }
+    .project-info { display:flex; gap:12px; justify-content:space-between; align-items:center; padding:23px 23px 25px; }
+    .project-label { font-size:11px; color:var(--rust); letter-spacing:1px; font-weight:700; text-transform:uppercase; }
+    .project-info h3 { margin:8px 0 7px; font-size:18px; letter-spacing:-.5px; }
+    .project-info p { font-size:12px; color:var(--sub); line-height:1.6; margin:0; }
+    .arrow { width:37px; height:37px; border-radius:50%; display:grid; place-items:center; background:#f3e9df; flex-shrink:0; transition:.2s; }
+    .project:hover .arrow { background:var(--ink); color:white; transform:rotate(-40deg); }
+    .quote { margin:65px 0; background:#eae1d3; border-radius:30px; padding:47px 20px; text-align:center; position:relative; overflow:hidden; }
+    .quote:before, .quote:after { content:'✳'; position:absolute; color:#c0ac91; font-size:78px; opacity:.5; }
+    .quote:before { left:7%; top:0; } .quote:after { right:8%; bottom:-20px; }
+    .quote small { color:#9b7561; font-weight:700; letter-spacing:2px; font-size:11px; }
+    .quote p { font-size:clamp(19px,3vw,29px); font-weight:700; line-height:1.7; letter-spacing:-1px; margin:13px 0 0; }
+    .footer { display:flex; align-items:center; justify-content:space-between; gap:15px; padding:28px 0 43px; border-top:1px solid #e6dacb; color:var(--sub); font-size:12px; }
+    .footer b { color:var(--ink); font-size:16px; }
+    .top-button { border:1px solid #ddcbbb; background:transparent; border-radius:100px; padding:9px 13px; cursor:pointer; color:var(--ink); transition:.2s; }
+    .top-button:hover { background:white; transform:translateY(-3px); }
+    @media (max-width:800px) { .hero { grid-template-columns:1fr; padding:45px 0 50px; gap:30px; } .portrait-area { grid-row:1; min-height:320px; } .portrait-card { max-width:300px; } h1 { letter-spacing:-2.4px; } .about-grid { grid-template-columns:1fr; } .projects { grid-template-columns:1fr; } .project { flex-direction:row; min-height:155px; } .project-art { width:38%; min-width:130px; height:auto; } .project-info { flex:1; } .section { padding:55px 0; } }
+    @media (max-width:520px) { .wrap { padding:0 22px; } .nav { padding-top:22px; } .brand { font-size:18px; } .nav-links { gap:13px; font-size:12px; } .nav-links .nav-about { display:none; } .nav-cta { padding:9px 12px; } .hero { padding-top:20px; } .portrait-area { min-height:290px; } .portrait-card { max-width:265px; } .float-note { font-size:11px; padding:10px 11px; } .note-left { left:0; bottom:39px; } .note-right { right:-4px; top:37px; } .hero-desc { font-size:14px; } .section-top { align-items:start; flex-direction:column; gap:10px; } .card { padding:23px; } .traits { gap:9px; } .trait { padding:16px 13px; } .project-info { padding:18px; } .project-info h3 { font-size:16px; } .project-art { min-width:109px; width:34%; } .project-number { font-size:82px; } .arrow { width:31px; height:31px; } .quote { margin:45px 0; padding:38px 17px; } .footer { align-items:flex-start; } }
+    @media (prefers-reduced-motion:reduce) { *,*:before,*:after { scroll-behavior:auto!important; animation:none!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav" id="top">
+      <a class="brand" href="index.html" aria-label="홈으로"><span class="brand-mark">🍂</span> honghong<span style="color:#bc8a67">.</span></a>
+      <nav class="nav-links" aria-label="주 메뉴"><a class="nav-about" href="#about">About me</a><a href="#projects">My space</a><a class="nav-cta" href="#projects">구경하기 ↗</a></nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> HELLO, I'M HONGHONG</span>
+          <h1 id="hero-heading">조금 느긋하게,<br><span class="accent">더 사랑스럽게.</span> 🍁</h1>
+          <p class="hero-desc">안녕하세요, 홍홍~ 입니다!<br>다정한 마음과 소소한 행복을 수집하는 ISFJ.<br>열심히 살아가되, 언젠가는 멋진 <strong style="color:#a75d40">한량</strong>이 되는 게 꿈이에요.</p>
+          <div class="hero-actions"><a class="btn-primary" href="#projects">나의 공간 둘러보기 <span aria-hidden="true">↗</span></a><a class="btn-secondary" href="#about">홍홍 알아보기 <span aria-hidden="true">♡</span></a></div>
+        </div>
+        <div class="portrait-area" aria-label="가을 감성 일러스트">
+          <span class="orb one"></span><span class="orb two"></span>
+          <div class="portrait-card">
+            <svg viewBox="0 0 360 395" role="img" aria-label="턱선까지 오는 둥근 단발머리와 앞머리를 한 여성 캐릭터가 니트를 입고 커피를 든 일러스트" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="59" cy="74" r="8" fill="#fbf5dd"/><circle cx="292" cy="92" r="5" fill="#fbf5dd"/><path d="M45 148q10-8 20 0M280 49q10-8 20 0" stroke="#fff5df" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M68 400q-4-132 111-135 115-4 117 135" fill="#a36b52"/><path d="M74 385q-5-91 31-111l42-13 34 43 38-43 38 12q37 22 36 112" fill="#d7a77d"/><path d="M114 291q23 46 27 107M246 284q-24 51-23 114" stroke="#bd8969" stroke-width="9" fill="none" opacity=".5"/>
+              <!-- Chin-length rounded bob with soft bangs and face-framing ends -->
+              <path d="M105 153 Q98 70 148 52 Q182 35 217 53 Q267 74 258 157 L258 251 Q243 267 218 252 Q194 265 180 260 Q157 268 135 253 Q109 263 100 244 Z" fill="#4a302b"/>
+              <path d="M112 169 Q110 100 151 78 Q189 56 224 89 Q250 114 246 170 L243 210 Q227 252 181 256 Q133 251 116 207 Z" fill="#f7d3b9"/>
+              <path d="M108 151 Q99 91 143 62 Q185 35 224 59 Q263 83 250 154 Q224 143 208 112 Q187 137 163 140 Q143 151 108 151 Z" fill="#4a302b"/>
+              <path d="M111 151 Q112 209 123 231 Q112 252 96 244 Q85 211 97 160 Z" fill="#4a302b"/>
+              <path d="M247 151 Q247 205 235 232 Q246 253 261 243 Q274 214 260 161 Z" fill="#4a302b"/>
+              <path d="M123 91 Q159 53 204 70" stroke="#76534a" stroke-width="7" fill="none" opacity=".42" stroke-linecap="round"/>
+              <path d="M121 239 Q134 251 147 248 M211 248 Q227 252 240 239" stroke="#63423a" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M111 170q-18-14-18 11 2 24 24 19M250 170q20-13 18 12-2 23-24 19" fill="#f5c6ab"/>
+              <path d="M142 180q11-7 23 0M196 180q12-7 23 0" stroke="#543a32" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="139" cy="197" rx="14" ry="8" fill="#ec9d93" opacity=".55"/><ellipse cx="220" cy="197" rx="14" ry="8" fill="#ec9d93" opacity=".55"/><path d="M173 211q8 8 16 0" stroke="#b96b63" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <path d="M157 253q24 33 48 0" stroke="#f7d3b9" stroke-width="22" fill="none"/><path d="M146 264q32 47 68 0" stroke="#f1c6a5" stroke-width="21" fill="none"/><path d="M166 272l15 18 14-18" fill="#f7d3b9"/>
+              <path d="M245 316q28-28 38-3l12 65h-68z" fill="#d7a77d"/><rect x="208" y="313" width="61" height="62" rx="9" fill="#faf5e8"/><path d="M270 324h12q20 3 5 25h-17" fill="none" stroke="#faf5e8" stroke-width="9"/><path d="M225 301q-5-12 3-22M243 299q-5-12 3-22" stroke="#fff6e4" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <path d="M88 120q-9 0-9 10 9 0 9 10 9-10 18-10-16-5-18-10z" fill="#ba7750"/><path d="M286 198q-12 1-12 14 12 0 12 12 8-11 19-12-15-5-19-14z" fill="#bf8863"/>
+            </svg>
+          </div>
+          <div class="float-note note-left">☕ 커피 한 잔의 여유</div><div class="float-note note-right">♡ autumn lover</div>
+        </div>
+      </section>
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="section-top"><div><p class="mini">01 / ABOUT ME</p><h2 id="about-title">홍홍이라는 사람 🌰</h2></div><p class="section-caption">작은 일상에서 큰 행복을 발견하는 중</p></div>
+        <div class="about-grid">
+          <article class="card"><p class="about-intro">“해야 할 일은 야무지게,<br>쉬는 시간은 누구보다 느긋하게!”</p><p class="about-text">조용히 주변을 살피고 마음을 나누는 걸 좋아해요. 따뜻한 말 한마디, 좋아하는 계절, 포근한 공간처럼 작지만 확실한 행복을 소중히 여깁니다. 지금은 성실하게, 언젠가는 여유 넘치는 한량으로! 🍵</p><div class="chips"><span class="chip">#ISFJ</span><span class="chip">#가을감성</span><span class="chip">#소확행수집가</span><span class="chip">#미래의한량</span><span class="chip">#다정함</span></div></article>
+          <article class="card traits" aria-label="나를 표현하는 키워드"><div class="trait"><div class="emoji">🧸</div><b>Lovely</b><span>귀엽고 사랑스러운 것들</span></div><div class="trait"><div class="emoji">🍂</div><b>Autumn mood</b><span>노을과 낙엽, 따뜻한 색감</span></div><div class="trait"><div class="emoji">🤎</div><b>ISFJ heart</b><span>섬세하고 다정한 마음</span></div><div class="trait"><div class="emoji">🫖</div><b>Slow living</b><span>꿈은 여유로운 한량 라이프</span></div></article>
+        </div>
+      </section>
+      <section class="section" id="projects" aria-labelledby="projects-title"><div class="section-top"><div><p class="mini">02 / MY LITTLE SPACES</p><h2 id="projects-title">나만의 공간 둘러보기 ✨</h2></div><p class="section-caption">각 카드를 클릭하면 별도 페이지로 이동해요.</p></div>
+        <div class="projects">
+          <a class="card project" href="1.html" aria-label="1번 페이지로 이동"><div class="project-art"><span class="project-number">1</span></div><div class="project-info"><div><span class="project-label">SPACE 01</span><h3>첫 번째 이야기</h3><p>새로운 이야기를 채울 공간</p></div><span class="arrow" aria-hidden="true">↗</span></div></a>
+          <a class="card project" href="2.html" aria-label="2번 페이지로 이동"><div class="project-art"><span class="project-number">2</span></div><div class="project-info"><div><span class="project-label">SPACE 02</span><h3>두 번째 이야기</h3><p>좋아하는 순간들을 기록할 공간</p></div><span class="arrow" aria-hidden="true">↗</span></div></a>
+          <a class="card project" href="3.html" aria-label="3번 페이지로 이동"><div class="project-art"><span class="project-number">3</span></div><div class="project-info"><div><span class="project-label">SPACE 03</span><h3>세 번째 이야기</h3><p>앞으로의 꿈을 담아둘 공간</p></div><span class="arrow" aria-hidden="true">↗</span></div></a>
+        </div>
+      </section>
+      <aside class="quote" aria-label="나의 모토"><small>MY LITTLE MOTTO</small><p>“인생은 바쁘게만 살기엔<br>너무 사랑스러우니까.” 🍁</p></aside>
+    </main>
+    <footer class="footer"><div><b>honghong.</b><div style="margin-top:7px">Made with a little love & autumn mood ♡</div></div><button class="top-button" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 이동">↑ TOP</button></footer>
+  </div>
+</body>
+</html>
